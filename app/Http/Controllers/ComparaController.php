@@ -20,6 +20,7 @@ class ComparaController
     protected $precio_unitario_producto;
     protected $total_precio_unidad;
     protected $respuesta_servicio;
+    protected $respuesta;
 
     public function store(Request $request)
     {
@@ -46,13 +47,13 @@ class ComparaController
                 //Comparo contra la misma orden de compra
                if($this->precio_total != $this->total_precio_unidad )
                {
-                    $resp[] = "Esta es la prueba";
+                    $this->respuesta[] = "Esto es una prueba";
                }
            }
        }
-        $resp = response()->json([
+        $this->respuesta = response()->json([
             "Pruebas" => "hola", "como estas" => 15243
         ]);
-        return $resp;
+        return $this->respuesta;
     }
-}
+}git
